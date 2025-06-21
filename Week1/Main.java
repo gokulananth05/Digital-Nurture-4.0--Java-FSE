@@ -1,14 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        Logger logger1 = Logger.getInstance();
-        logger1.log("This is the first log message");
+        DocumentFactory wordFactory = new WordDocumentFactory();
+        Document wordDoc = wordFactory.createDocument();
+        wordDoc.open();
 
-        Logger logger2 = Logger.getInstance();
-        logger2.log("This is the second log message");
+        DocumentFactory pdfFactory = new PdfDocumentFactory();
+        Document pdfDoc = pdfFactory.createDocument();
+        pdfDoc.open();
 
-        if(logger1 == logger2)
-            System.out.println("Only one instance exists. Singleton works!");
-        else
-            System.out.println("Different instance exists. Singleton Failed!");
+        DocumentFactory excelFactory = new ExcelDocumentFactory();
+        Document excelDoc = excelFactory.createDocument();
+        excelDoc.open();
     }
 }
